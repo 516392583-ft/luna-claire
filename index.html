@@ -464,49 +464,61 @@ section {
   background: var(--cream-light);
 }
 .philosophy-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
   align-items: center;
+  text-align: center;
 }
 .philosophy-visual {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 1rem;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
 }
 .philosophy-visual > div {
   aspect-ratio: 1;
-  border-radius: 2px;
+  border-radius: 4px;
   border: 1px solid var(--border);
+  transition: transform 0.4s ease;
+}
+.philosophy-visual > div:hover {
+  transform: scale(1.03);
 }
 .philosophy-visual > div:nth-child(1) {
-  background: linear-gradient(135deg, var(--cream) 0%, #EDE6D6 100%);
+  background: linear-gradient(135deg, #1B2F4F 0%, #2A4565 100%);
 }
 .philosophy-visual > div:nth-child(2) {
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-  margin-top: 2rem;
+  background: linear-gradient(135deg, #B8945C 0%, #D4B886 100%);
 }
 .philosophy-visual > div:nth-child(3) {
-  background: linear-gradient(135deg, var(--blush) 0%, var(--blush-light) 100%);
-  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #C9A49A 0%, #D4B0A2 100%);
 }
 .philosophy-visual > div:nth-child(4) {
-  background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+  background: linear-gradient(135deg, #F5F0E8 0%, #EDE6D6 100%);
+}
+.philosophy-text {
+  max-width: 680px;
+  margin: 0 auto;
 }
 .philosophy-text .section-desc + .section-desc {
   margin-top: 1.2rem;
 }
 .philosophy-quote {
-  margin-top: 2rem;
-  padding: 1.5rem 2rem;
+  margin-top: 2.5rem;
+  padding: 2rem 2.5rem;
   border-left: 1px solid var(--gold);
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.05rem;
-  color: var(--burgundy);
+  font-size: 1.15rem;
+  color: #1B2F4F;
   line-height: 1.8;
   background: rgba(184,148,92,0.04);
-  border-radius: 1px;
+  border-radius: 4px;
+  text-align: left;
 }
 .philosophy-quote cite {
   display: block;
@@ -606,7 +618,6 @@ footer {
   .story-grid { grid-template-columns: 1fr; gap: 3rem; }
   .product-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
   .craft-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-  .philosophy-grid { grid-template-columns: 1fr; gap: 3rem; }
   .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
 }
 @media (max-width: 600px) {
@@ -793,12 +804,6 @@ footer {
 </section>
 <section class="philosophy" id="philosophy">
   <div class="section-inner philosophy-grid">
-    <div class="philosophy-visual">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
     <div class="philosophy-text">
       <div class="section-label">Philosophy</div>
       <h2 class="section-title">为书写者而生</h2>
@@ -808,6 +813,12 @@ footer {
         "真正的优雅，不流于表面的精致，而源于内心的秩序与从容。"
         <cite>— Luna Claire</cite>
       </div>
+    </div>
+    <div class="philosophy-visual">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   </div>
 </section>
