@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luna Claire · 品牌营销方案书</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --burgundy: #722F37;
+  --burgundy-light: #8B3A44;
+  --cream: #F5F0E8;
+  --cream-light: #FAF7F2;
+  --gold: #B8945C;
+  --gold-light: #D4B886;
+  --blush: #C9A49A;
+  --blush-light: #D4B0A2;
+  --taupe: #8C7A7A;
+  --text: #2C2C2C;
+  --text-light: #7A7A7A;
+  --border: #E8E0D4;
+  --shadow: rgba(114, 47, 55, 0.06);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--cream-light);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== COVER ===== */
+.cover {
+  min-height: 100vh;
+  background: linear-gradient(165deg, var(--burgundy) 0%, #4A1C22 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(ellipse at 30% 40%, rgba(184,148,92,0.06) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 60%, rgba(201,164,154,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+.cover-ornament {
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin-bottom: 3rem;
+}
+.cover-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.82rem; letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--gold-light); margin-bottom: 2rem; opacity: 0.7;
+}
+.cover-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400; color: var(--cream);
+  text-align: center; line-height: 1.15; letter-spacing: 0.06em;
+}
+.cover-title em { font-style: italic; color: var(--gold-light); }
+.cover-subtitle {
+  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+  color: rgba(245,240,232,0.55);
+  text-align: center; margin-top: 1.5rem;
+  letter-spacing: 0.15em; font-weight: 300;
+}
+.cover-divider { width: 40px; height: 1px; background: var(--gold); margin: 2.5rem 0; opacity: 0.5; }
+.cover-slogan {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-style: italic; color: rgba(212,184,134,0.5); letter-spacing: 0.2em;
+}
+.cover-scroll {
+  position: absolute; bottom: 2.5rem;
+  color: rgba(245,240,232,0.25); font-size: 0.72rem; letter-spacing: 0.2em;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+}
+.cover-scroll .line {
+  display: block; width: 1px; height: 30px;
+  background: linear-gradient(to bottom, rgba(245,240,232,0.3), transparent);
+}
+
+/* ===== NAV ===== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+.nav.visible { transform: translateY(0); }
+.nav-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 52px;
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 500; color: var(--burgundy);
+  letter-spacing: 0.08em;
+}
+.nav-logo em { font-style: italic; color: var(--gold); }
+.nav-links { display: flex; gap: 1.8rem; }
+.nav-links a {
+  text-decoration: none; color: var(--text-light);
+  font-size: 0.75rem; letter-spacing: 0.05em; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--burgundy); }
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: 5rem 0;
+}
+.section-alt {
+  padding: 5rem 0;
+  background: white;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; font-weight: 500;
+  color: var(--burgundy); text-align: center;
+}
+.section-sub {
+  text-align: center; color: var(--text-light);
+  font-size: 0.82rem; font-weight: 300; margin-bottom: 2.5rem;
+  letter-spacing: 0.02em;
+}
+.section-divider {
+  width: 40px; height: 1px;
+  background: var(--gold); margin: 0.8rem auto 1.5rem; opacity: 0.4;
+}
+
+/* ===== BANNER ===== */
+.banner {
+  background: white; padding: 2rem 2rem;
+  border-bottom: 1px solid var(--border);
+}
+.banner-inner {
+  max-width: 1000px; margin: 0 auto;
+  display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; justify-content: center;
+}
+.banner-tag {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.78rem; color: var(--text-light); letter-spacing: 0.02em;
+}
+.banner-tag::before {
+  content: '';
+  display: inline-block; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--gold); flex-shrink: 0;
+}
+.banner-tag:first-child::before { background: var(--burgundy); }
+
+/* ===== MOOD BOARD ===== */
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.mood-card {
+  background: white;
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.mood-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--shadow); }
+.mood-card-visual {
+  aspect-ratio: 4 / 3;
+  display: flex; align-items: center; justify-content: center; padding: 2rem;
+}
+.mood-card-info { padding: 1rem 1.2rem; }
+.mood-card-info h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem; font-weight: 600; color: var(--burgundy); margin-bottom: 0.2rem;
+}
+.mood-card-info p { font-size: 0.75rem; color: var(--text-light); line-height: 1.6; }
+.mood-desc {
+  grid-column: 1 / -1; text-align: center; font-size: 0.8rem;
+  color: var(--text-light); padding: 1.2rem 0 0;
+  border-top: 1px solid var(--border); margin-top: 0.5rem;
+}
+.swatch { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.06); flex-shrink: 0; }
+.swatch-group { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.color-label { text-align: center; margin-top: 0.6rem; font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; letter-spacing: 0.08em; }
+.color-hex { font-size: 0.62rem; opacity: 0.5; margin-top: 0.1rem; font-family: 'Inter'; }
+.mood-typography { text-align: center; }
+.mood-typography .display { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--burgundy); margin-bottom: 0.3rem; }
+.mood-typography .italic { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3rem; color: var(--gold); margin-bottom: 0.5rem; }
+.mood-typography .body { font-family: 'Inter'; font-size: 0.72rem; color: var(--text-light); letter-spacing: 0.03em; }
+
+/* ===== DESIGN CONCEPT SHOWCASE ===== */
+.showcase {
+  padding: 3rem 0;
+}
+.showcase-item {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.showcase-item:last-child { border-bottom: none; }
+.showcase-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.showcase-header h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 500;
+  color: var(--burgundy); letter-spacing: 0.04em;
+}
+.showcase-header p {
+  font-size: 0.82rem; color: var(--text-light); font-weight: 300;
+  max-width: 540px; margin: 0.3rem auto 0;
+}
+.showcase-visual {
+  max-width: 860px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px var(--shadow);
+  transition: box-shadow 0.3s ease;
+}
+.showcase-visual:hover { box-shadow: 0 8px 32px rgba(114,47,55,0.1); }
+.showcase-visual svg { display: block; width: 100%; height: auto; }
+.showcase-caption {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  color: var(--text-light);
+  font-weight: 300;
+}
+
+/* ===== DIRECTION GRID ===== */
+.direction-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+.direction-card {
+  padding: 2rem;
+  border: 1px solid var(--border);
+  background: var(--cream-light);
+  transition: box-shadow 0.3s ease;
+}
+.direction-card:hover { box-shadow: 0 4px 16px var(--shadow); }
+.direction-icon { font-size: 1.5rem; margin-bottom: 0.8rem; display: block; }
+.direction-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; color: var(--burgundy); margin-bottom: 0.5rem;
+}
+.direction-card p { font-size: 0.8rem; color: var(--text-light); font-weight: 300; line-height: 1.8; }
+.direction-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
+.direction-tag {
+  font-size: 0.68rem; padding: 0.15rem 0.6rem;
+  border: 1px solid var(--gold-light); border-radius: 12px; color: var(--gold); background: transparent;
+}
+
+/* ===== DOCUMENTS ===== */
+.doc-list { max-width: 780px; margin: 0 auto; }
+.doc-item {
+  display: flex; align-items: flex-start; gap: 1.2rem;
+  padding: 1.4rem 0; border-bottom: 1px solid var(--border);
+  text-decoration: none; color: inherit; transition: padding-left 0.2s ease;
+}
+.doc-item:last-child { border-bottom: none; }
+.doc-item:hover { padding-left: 0.6rem; }
+.doc-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 300; color: var(--gold);
+  line-height: 1; min-width: 2.2rem; opacity: 0.6;
+}
+.doc-content h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-weight: 500; color: var(--burgundy); margin-bottom: 0.2rem;
+}
+.doc-content p { font-size: 0.8rem; color: var(--text-light); font-weight: 300; }
+.doc-arrow { margin-left: auto; color: var(--gold); opacity: 0; transition: opacity 0.2s ease; font-size: 0.9rem; padding-top: 0.2rem; }
+.doc-item:hover .doc-arrow { opacity: 1; }
+
+/* ===== BRAND VOICE ===== */
+.brand-voice {
+  padding: 5rem 0;
+  background: var(--burgundy);
+  color: var(--cream);
+}
+.brand-voice .section-title { color: var(--cream); }
+.brand-voice .section-sub { color: rgba(245,240,232,0.5); }
+.voice-block { max-width: 700px; margin: 2.5rem auto 0; text-align: center; }
+.voice-block blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-style: italic; line-height: 1.8; color: rgba(245,240,232,0.85);
+  margin-bottom: 1.5rem; font-weight: 400;
+}
+.voice-author { font-size: 0.75rem; color: var(--gold-light); letter-spacing: 0.2em; opacity: 0.6; }
+.voice-rules {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 1.5rem; margin-top: 2.5rem; padding-top: 2rem;
+  border-top: 1px solid rgba(245,240,232,0.1);
+}
+.voice-rule { font-size: 0.72rem; color: rgba(245,240,232,0.4); letter-spacing: 0.05em; }
+.voice-rule.yes { color: var(--blush); }
+.voice-rule.no { color: rgba(212,184,134,0.4); text-decoration: line-through; }
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 2.5rem 2rem; text-align: center; background: #4A1C22;
+  color: rgba(245,240,232,0.25); font-size: 0.72rem; letter-spacing: 0.15em;
+}
+.footer span { font-family: 'Cormorant Garamond', serif; font-style: italic; color: rgba(212,184,134,0.3); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .mood-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .direction-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .cover { padding: 3rem 1.5rem; }
+  .nav-links { display: none; }
+  .section { padding: 3rem 0; }
+  .section-alt { padding: 3rem 0; }
+  .showcase-item { padding: 2rem 0; }
+}
+@media (max-width: 480px) { .cover-title { font-size: 2.2rem; } }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.doc-item { animation: fadeUp 0.5s ease both; }
+.doc-item:nth-child(1) { animation-delay: 0.05s; }
+.doc-item:nth-child(2) { animation-delay: 0.1s; }
+.doc-item:nth-child(3) { animation-delay: 0.15s; }
+.doc-item:nth-child(4) { animation-delay: 0.2s; }
+.doc-item:nth-child(5) { animation-delay: 0.25s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">Luna <em>Claire</em></div>
+    <div class="nav-links">
+      <a href="#moodboard">设计语言</a>
+      <a href="#concepts">包装概念</a>
+      <a href="#direction">升级方向</a>
+      <a href="#documents">方案目录</a>
+      <a href="#voice">品牌语调</a>
+    </div>
+  </div>
+</nav>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-ornament"></div>
+  <div class="cover-label">Brand Marketing Portfolio</div>
+  <h1 class="cover-title">Luna<em> Claire</em></h1>
+  <p class="cover-subtitle">品 牌 营 销 方 案 书</p>
+  <div class="cover-divider"></div>
+  <p class="cover-slogan">书写立心，优雅自成</p>
+  <div class="cover-scroll"><span>scroll</span><span class="line"></span></div>
+</section>
+
+<!-- BANNER -->
+<div class="banner">
+  <div class="banner-inner">
+    <span class="banner-tag">24-36岁 知性女性</span>
+    <span class="banner-tag">高级简约 · 欧式古典轻复古</span>
+    <span class="banner-tag">腔脊锁线 · 触感膜 · 烫金</span>
+    <span class="banner-tag">书写立心，优雅自成</span>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="section">
+  <div class="container" style="text-align:center;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:0.78rem;letter-spacing:0.3em;color:var(--gold);margin-bottom:1rem;">策 划 概 览</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:500;color:var(--burgundy);margin-bottom:0.8rem;letter-spacing:0.04em;">品牌营销整合方案</h1>
+    <p style="max-width:600px;margin:0 auto;color:var(--text-light);font-size:0.9rem;font-weight:300;">
+      围绕 Luna Claire 的品牌基因与产品定位，从内容矩阵、新品上市、私域运营、<br>节点营销到执行落地，构建完整、克制、可落地的营销体系。
+    </p>
+  </div>
+</section>
+
+<!-- MOOD BOARD -->
+<section class="section-alt" id="moodboard">
+  <div class="container">
+    <div class="section-title">设计语言 · 情绪板</div>
+    <div class="section-divider"></div>
+    <div class="section-sub">Design Language & Mood Board</div>
+    <div class="mood-grid">
+      <div class="mood-card">
+        <div class="mood-card-visual" style="background:linear-gradient(135deg,#722F37,#8B3A44);">
+          <div style="text-align:center;color:rgba(245,240,232,0.7);">
+            <div class="swatch-group"><div class="swatch" style="background:#722F37;"></div></div>
+            <div class="color-label" style="color:var(--cream);">勃艮第红</div>
+            <div class="color-hex" style="color:rgba(245,240,232,0.4);">#722F37</div>
+          </div>
+        </div>
+        <div class="mood-card-info">
+          <h4>主色调 · Burgundy</h4>
+          <p>浓郁、温暖、有质感的底色，传达品牌的复古气质与高级格调。</p>
+        </div>
+      </div>
+      <div class="mood-card">
+        <div class="mood-card-visual" style="background:linear-gradient(135deg,#F5F0E8,#E8E0D4);">
+          <div style="text-align:center;color:var(--text);">
+            <div class="swatch-group"><div class="swatch" style="background:#F5F0E8;"></div></div>
+            <div class="color-label">奶油白</div>
+            <div class="color-hex">#F5F0E8</div>
+          </div>
+        </div>
+        <div class="mood-card-info">
+          <h4>基底色 · Cream</h4>
+          <p>温润如纸的底色，模拟特种纸与触感膜的视觉触感，传递温润亲肤的品牌体验。</p>
+        </div>
+      </div>
+      <div class="mood-card">
+        <div class="mood-card-visual" style="background:linear-gradient(135deg,#D4B886,#B8945C);">
+          <div style="text-align:center;color:rgba(255,255,255,0.8);">
+            <div class="swatch-group"><div class="swatch" style="background:#B8945C;"></div></div>
+            <div class="color-label" style="color:rgba(255,255,255,0.9);">烫金色</div>
+            <div class="color-hex" style="color:rgba(255,255,255,0.5);">#B8945C</div>
+          </div>
+        </div>
+        <div class="mood-card-info">
+          <h4>点缀色 · Gold</h4>
+          <p>克制而精致的小面积烫金，呼应产品工艺中的烫金细节，提升整体质感。</p>
+        </div>
+      </div>
+      <div class="mood-card">
+        <div class="mood-card-visual" style="background:linear-gradient(135deg,#C9A49A,#D4B0A2);">
+          <div style="text-align:center;color:rgba(255,255,255,0.7);">
+            <div class="swatch-group"><div class="swatch" style="background:#C9A49A;"></div></div>
+            <div class="color-label" style="color:rgba(255,255,255,0.9);">干枯玫瑰粉</div>
+            <div class="color-hex" style="color:rgba(255,255,255,0.5);">#C9A49A</div>
+          </div>
+        </div>
+        <div class="mood-card-info">
+          <h4>辅助色 · Dusty Rose</h4>
+          <p>温柔、内敛、有故事感的粉色，为整体调性注入一份浪漫与复古气息。</p>
+        </div>
+      </div>
+      <div class="mood-card">
+        <div class="mood-card-visual" style="background:linear-gradient(135deg,#8C7A7A,#6B5B5B);">
+          <div style="text-align:center;color:rgba(245,240,232,0.8);">
+            <div class="swatch-group"><div class="swatch" style="background:#8C7A7A;"></div></div>
+            <div class="color-label" style="color:var(--cream);">暖灰色</div>
+            <div class="color-hex" style="color:rgba(245,240,232,0.4);">#8C7A7A</div>
+          </div>
+        </div>
+        <div class="mood-card-info">
+          <h4>辅助色 · Warm Taupe</h4>
+          <p>暖灰色用于正文与细节，柔和大方，呼应古典书卷气息与沉稳质感。</p>
+        </div>
+      </div>
+      <div class="mood-card">
+        <div class="mood-card-visual" style="background:#FAF7F2;border-bottom:1px solid var(--border);">
+          <div class="mood-typography">
+            <div class="display">Luna Claire</div>
+            <div class="italic">书写立心，优雅自成</div>
+            <div class="body">Cormorant Garamond · Inter</div>
+          </div>
+        </div>
+        <div class="mood-card-info">
+          <h4>字体系统 · Typography</h4>
+          <p>Cormorant Garamond 营造英式古典感，Inter 保证现代可读性，典雅与实用的平衡。</p>
+        </div>
+      </div>
+    </div>
+    <div class="mood-desc">设计关键词：高级 · 简约 · 克制 · 古典轻复古 · 书卷气 · 有温度的精致</div>
+  </div>
+</section>
+
+<!-- DESIGN CONCEPTS SHOWCASE -->
+<section class="section" id="concepts">
+  <div class="container">
+    <div class="section-title">包装概念设计</div>
+    <div class="section-divider"></div>
+    <div class="section-sub">Packaging Concept Design · 点击下方概念图查看设计细节</div>
+
+    <div class="showcase">
+      <!-- Concept 1: Cover -->
+      <div class="showcase-item">
+        <div class="showcase-header">
+          <h3>方案书封面概念</h3>
+          <p>Brand Portfolio Cover · 以勃艮第红为底色，搭配烫金字体与克制留白，呈现高级古典的交付仪式感</p>
+        </div>
+        <div class="showcase-visual">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="cvr-bg-burgundy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#722F37"/>
+      <stop offset="100%" stop-color="#4A1C22"/>
+    </linearGradient>
+    <linearGradient id="cvr-gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D4B886"/>
+      <stop offset="50%" stop-color="#B8945C"/>
+      <stop offset="100%" stop-color="#D4B886"/>
+    </linearGradient>
+    <linearGradient id="cvr-glow-burgundy" x1="0.3" y1="0.4" x2="0.7" y2="0.6">
+      <stop offset="0%" stop-color="#B8945C" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#cvr-bg-burgundy)"/>
+  <rect width="800" height="600" fill="url(#cvr-glow-burgundy)"/>
+  <line x1="60" y1="120" x2="740" y2="120" stroke="#B8945C" stroke-opacity="0.08" stroke-width="0.5"/>
+  <line x1="60" y1="480" x2="740" y2="480" stroke="#B8945C" stroke-opacity="0.08" stroke-width="0.5"/>
+  <line x1="80" y1="140" x2="80" y2="460" stroke="#D4B886" stroke-opacity="0.06" stroke-width="0.5"/>
+  <line x1="720" y1="140" x2="720" y2="460" stroke="#D4B886" stroke-opacity="0.06" stroke-width="0.5"/>
+  <line x1="320" y1="145" x2="480" y2="145" stroke="url(#cvr-gold)" stroke-opacity="0.3" stroke-width="0.5"/>
+  <polygon points="400,138 404,142 400,146 396,142" fill="#B8945C" fill-opacity="0.15"/>
+  <text x="400" y="270" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="84" fill="#F5F0E8" font-weight="400" letter-spacing="6">Luna</text>
+  <text x="400" y="330" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="84" fill="#D4B886" font-style="italic" font-weight="400" letter-spacing="6">Claire</text>
+  <text x="400" y="380" text-anchor="middle" font-family="'Inter', sans-serif" font-size="13" fill="#F5F0E8" fill-opacity="0.4" letter-spacing="12">营 销 方 案 书</text>
+  <line x1="370" y1="402" x2="430" y2="402" stroke="#B8945C" stroke-opacity="0.4" stroke-width="0.5"/>
+  <text x="400" y="430" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="17" fill="#D4B886" fill-opacity="0.35" font-style="italic" letter-spacing="6">书写立心，优雅自成</text>
+  <line x1="350" y1="455" x2="450" y2="455" stroke="url(#cvr-gold)" stroke-opacity="0.15" stroke-width="0.5"/>
+  <g transform="translate(400, 505)" opacity="0.12">
+    <rect x="-55" y="-8" width="110" height="16" rx="1" fill="#F5F0E8"/>
+    <rect x="-45" y="-8" width="90" height="16" rx="1" fill="#F5F0E8" transform="translate(0, -20)"/>
+    <rect x="-50" y="-8" width="100" height="16" rx="1" fill="#F5F0E8" transform="translate(0, -40)"/>
+  </g>
+</svg>
+
+        </div>
+        <div class="showcase-caption">封面采用勃艮第红渐变底色 + 烫金色衬线字体 + 极简装饰线，追求「少即是多」的高级感</div>
+      </div>
+
+      <!-- Concept 2: Packaging -->
+      <div class="showcase-item">
+        <div class="showcase-header">
+          <h3>产品实物包装概念</h3>
+          <p>Product Packaging Mockup · 天地盖盒型、触感膜工艺、烫金Logo、品牌故事卡，打造完整的开箱体验</p>
+        </div>
+        <div class="showcase-visual">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="pkg-bg-burgundy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FAF7F2"/>
+      <stop offset="100%" stop-color="#F5F0E8"/>
+    </linearGradient>
+    <linearGradient id="pkg-box-burgundy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#722F37"/>
+      <stop offset="100%" stop-color="#4A1C22"/>
+    </linearGradient>
+    <linearGradient id="pkg-boxTop-burgundy" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#722F37"/>
+      <stop offset="100%" stop-color="#8B3A44"/>
+    </linearGradient>
+    <linearGradient id="pkg-goldBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D4B886"/>
+      <stop offset="50%" stop-color="#B8945C"/>
+      <stop offset="100%" stop-color="#D4B886"/>
+    </linearGradient>
+    <filter id="pkg-shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#722F37" flood-opacity="0.12"/>
+    </filter>
+    <filter id="pkg-softShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#722F37" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#pkg-bg-burgundy)"/>
+
+  <!-- Background subtle pattern -->
+  <g opacity="0.03">
+    <line x1="0" y1="150" x2="800" y2="150" stroke="#722F37" stroke-width="0.3"/>
+    <line x1="0" y1="300" x2="800" y2="300" stroke="#722F37" stroke-width="0.3"/>
+    <line x1="0" y1="450" x2="800" y2="450" stroke="#722F37" stroke-width="0.3"/>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="65" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="26" fill="#722F37" font-weight="500" letter-spacing="4">产品实物包装概念</text>
+  <text x="400" y="90" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" fill="#7A7A7A" font-weight="300" letter-spacing="6">PRODUCT PACKAGING CONCEPT</text>
+  <line x1="350" y1="105" x2="450" y2="105" stroke="#B8945C" stroke-opacity="0.3" stroke-width="0.5"/>
+
+  <!-- Main box - perspective front face -->
+  <g filter="url(#pkg-shadow)">
+    <!-- Front face -->
+    <rect x="230" y="200" width="340" height="260" rx="2" fill="url(#pkg-box-burgundy)"/>
+    <!-- Top face -->
+    <polygon points="230,200 290,150 630,150 570,200" fill="url(#pkg-boxTop-burgundy)"/>
+    <!-- Right face -->
+    <polygon points="570,200 630,150 630,410 570,460" fill="#4A1C22"/>
+  </g>
+
+  <!-- Box decorative elements - front panel -->
+  <!-- Gold decorative line on box -->
+  <line x1="280" y1="240" x2="520" y2="240" stroke="url(#pkg-goldBar)" stroke-opacity="0.15" stroke-width="0.5"/>
+
+  <!-- Brand on box -->
+  <text x="400" y="310" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="42" fill="#F5F0E8" font-weight="400" letter-spacing="5">Luna</text>
+  <text x="400" y="350" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="42" fill="#D4B886" font-style="italic" font-weight="400" letter-spacing="5">Claire</text>
+
+  <!-- Center gold line -->
+  <line x1="360" y1="368" x2="440" y2="368" stroke="#D4B886" stroke-opacity="0.25" stroke-width="0.5"/>
+
+  <!-- Slogan -->
+  <text x="400" y="395" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="12" fill="#D4B886" fill-opacity="0.3" font-style="italic" letter-spacing="4">书写立心 · 优雅自成</text>
+
+  <!-- Small foil emblem suggestion -->
+  <g transform="translate(400, 428)">
+    <rect x="-18" y="-8" width="36" height="16" rx="1" fill="none" stroke="#B8945C" stroke-opacity="0.15" stroke-width="0.4"/>
+    <text x="0" y="2" text-anchor="middle" font-family="'Inter', sans-serif" font-size="6" fill="#B8945C" fill-opacity="0.15" letter-spacing="3">FOIL EMBOSS</text>
+  </g>
+
+  <!-- Bottom decorative line -->
+  <line x1="280" y1="440" x2="520" y2="440" stroke="url(#pkg-goldBar)" stroke-opacity="0.1" stroke-width="0.3"/>
+
+  <!-- Side notes -->
+  <g transform="translate(580, 240)" opacity="0.5">
+    <text x="0" y="0" font-family="'Inter', sans-serif" font-size="9" fill="#7A7A7A" letter-spacing="2">天 地 盖 盒 型</text>
+    <text x="0" y="18" font-family="'Inter', sans-serif" font-size="8" fill="#7A7A7A" font-weight="300">特 种 纸 + 触 感 膜</text>
+  </g>
+
+  <!-- Material callouts -->
+  <g transform="translate(100, 240)">
+    <rect x="0" y="0" width="90" height="70" rx="1" fill="white" stroke="#E8E0D4" stroke-width="0.4" filter="url(#pkg-softShadow)"/>
+    <text x="45" y="22" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="11" fill="#722F37" font-weight="500">烫 金</text>
+    <text x="45" y="40" text-anchor="middle" font-family="'Inter', sans-serif" font-size="8" fill="#7A7A7A" font-weight="300">Gold Foil</text>
+    <line x1="15" y1="48" x2="75" y2="48" stroke="#B8945C" stroke-opacity="0.2" stroke-width="0.3"/>
+    <text x="45" y="62" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#7A7A7A" font-weight="300">小面积精致点缀</text>
+  </g>
+
+  <g transform="translate(100, 340)">
+    <rect x="0" y="0" width="90" height="70" rx="1" fill="white" stroke="#E8E0D4" stroke-width="0.4" filter="url(#pkg-softShadow)"/>
+    <text x="45" y="22" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="11" fill="#722F37" font-weight="500">触 感 膜</text>
+    <text x="45" y="40" text-anchor="middle" font-family="'Inter', sans-serif" font-size="8" fill="#7A7A7A" font-weight="300">Soft Touch</text>
+    <line x1="15" y1="48" x2="75" y2="48" stroke="#B8945C" stroke-opacity="0.2" stroke-width="0.3"/>
+    <text x="45" y="62" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#7A7A7A" font-weight="300">温润亲肤手感</text>
+  </g>
+
+  <!-- Bottom accessory - brand card mockup -->
+  <g transform="translate(400, 520)" filter="url(#pkg-softShadow)">
+    <rect x="-120" y="-25" width="240" height="50" rx="1" fill="white" stroke="#E8E0D4" stroke-width="0.3"/>
+    <text x="0" y="-4" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="11" fill="#722F37" font-weight="500">品牌故事卡 · Brand Story Card</text>
+    <text x="0" y="12" text-anchor="middle" font-family="'Inter', sans-serif" font-size="8" fill="#7A7A7A" font-weight="300">特种纸印刷 · 烫金 Logo · 附于盒内</text>
+  </g>
+</svg>
+
+        </div>
+        <div class="showcase-caption">天地盖盒型 + 深勃艮第红触感膜覆面 + 小面积烫金Logo + 内附品牌故事卡</div>
+      </div>
+
+      <!-- Concept 3: Brand Identity -->
+      <div class="showcase-item" style="border-bottom:none;">
+        <div class="showcase-header">
+          <h3>品牌视觉规范</h3>
+          <p>Brand Visual Identity · 完整的色彩体系、字体规范、品牌触点、设计原则，统一品牌视觉输出</p>
+        </div>
+        <div class="showcase-visual">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="brd-bg-burgundy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#722F37"/>
+      <stop offset="100%" stop-color="#4A1C22"/>
+    </linearGradient>
+    <linearGradient id="brd-gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D4B886"/>
+      <stop offset="50%" stop-color="#B8945C"/>
+      <stop offset="100%" stop-color="#D4B886"/>
+    </linearGradient>
+    <linearGradient id="brd-creamGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F5F0E8"/>
+      <stop offset="100%" stop-color="#FAF7F2"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#brd-bg-burgundy)"/>
+  <rect x="40" y="30" width="720" height="540" rx="2" fill="url(#brd-creamGrad)" stroke="#E8E0D4" stroke-width="0.3" opacity="0.97"/>
+
+  <!-- Title -->
+  <text x="400" y="75" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="22" fill="#722F37" font-weight="500" letter-spacing="6">品 牌 视 觉 规 范</text>
+  <text x="400" y="98" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#7A7A7A" font-weight="300" letter-spacing="8">BRAND VISUAL IDENTITY</text>
+  <line x1="330" y1="112" x2="470" y2="112" stroke="#B8945C" stroke-opacity="0.25" stroke-width="0.5"/>
+
+  <!-- Color Palette Section -->
+  <text x="60" y="150" font-family="'Cormorant Garamond', serif" font-size="14" fill="#722F37" font-weight="500" letter-spacing="3">色 彩 体 系</text>
+  <text x="60" y="168" font-family="'Inter', sans-serif" font-size="8" fill="#7A7A7A" font-weight="300" letter-spacing="4">COLOR PALETTE</text>
+
+  <!-- Swatches -->
+  <g transform="translate(60, 185)">
+    <rect x="0" y="0" width="60" height="60" rx="1" fill="#722F37"/>
+    <text x="30" y="75" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#722F37" font-weight="500">#722F37</text>
+    <text x="30" y="86" text-anchor="middle" font-family="'Inter', sans-serif" font-size="6" fill="#7A7A7A">勃艮第红</text>
+  </g>
+  <g transform="translate(135, 185)">
+    <rect x="0" y="0" width="60" height="60" rx="1" fill="#F5F0E8" stroke="#E8E0D4" stroke-width="0.3"/>
+    <text x="30" y="75" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#722F37" font-weight="500">#F5F0E8</text>
+    <text x="30" y="86" text-anchor="middle" font-family="'Inter', sans-serif" font-size="6" fill="#7A7A7A">奶油白</text>
+  </g>
+  <g transform="translate(210, 185)">
+    <rect x="0" y="0" width="60" height="60" rx="1" fill="#B8945C"/>
+    <text x="30" y="75" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#722F37" font-weight="500">#B8945C</text>
+    <text x="30" y="86" text-anchor="middle" font-family="'Inter', sans-serif" font-size="6" fill="#7A7A7A">烫金色</text>
+  </g>
+  <g transform="translate(285, 185)">
+    <rect x="0" y="0" width="60" height="60" rx="1" fill="#C9A49A"/>
+    <text x="30" y="75" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#722F37" font-weight="500">#C9A49A</text>
+    <text x="30" y="86" text-anchor="middle" font-family="'Inter', sans-serif" font-size="6" fill="#7A7A7A">干枯玫瑰粉</text>
+  </g>
+  <g transform="translate(360, 185)">
+    <rect x="0" y="0" width="60" height="60" rx="1" fill="#8C7A7A"/>
+    <text x="30" y="75" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#722F37" font-weight="500">#8C7A7A</text>
+    <text x="30" y="86" text-anchor="middle" font-family="'Inter', sans-serif" font-size="6" fill="#7A7A7A">暖灰色</text>
+  </g>
+  <g transform="translate(435, 185)">
+    <rect x="0" y="0" width="60" height="60" rx="1" fill="#FAF7F2" stroke="#E8E0D4" stroke-width="0.3"/>
+    <text x="30" y="75" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#722F37" font-weight="500">#FAF7F2</text>
+    <text x="30" y="86" text-anchor="middle" font-family="'Inter', sans-serif" font-size="6" fill="#7A7A7A">基底白</text>
+  </g>
+
+  <!-- Typography -->
+  <text x="60" y="310" font-family="'Cormorant Garamond', serif" font-size="14" fill="#722F37" font-weight="500" letter-spacing="3">字 体 规 范</text>
+  <text x="60" y="328" font-family="'Inter', sans-serif" font-size="8" fill="#7A7A7A" font-weight="300" letter-spacing="4">TYPOGRAPHY</text>
+
+  <g transform="translate(60, 345)">
+    <text x="0" y="0" font-family="'Cormorant Garamond', serif" font-size="32" fill="#722F37" font-weight="400" letter-spacing="2">Luna Claire</text>
+    <text x="0" y="28" font-family="'Cormorant Garamond', serif" font-size="18" fill="#B8945C" font-style="italic" letter-spacing="3">书写立心，优雅自成</text>
+    <text x="0" y="52" font-family="'Inter', sans-serif" font-size="10" fill="#7A7A7A" font-weight="300">标题：Cormorant Garamond · 正文：Inter · 衬线体传达古典感，无衬线保证现代可读性</text>
+  </g>
+
+  <!-- Brand Identity Elements -->
+  <text x="500" y="150" font-family="'Cormorant Garamond', serif" font-size="14" fill="#722F37" font-weight="500" letter-spacing="3">品 牌 触 点</text>
+  <text x="500" y="168" font-family="'Inter', sans-serif" font-size="8" fill="#7A7A7A" font-weight="300" letter-spacing="4">BRAND TOUCHPOINTS</text>
+
+  <g transform="translate(500, 190)">
+    <rect x="0" y="0" width="50" height="50" rx="1" fill="white" stroke="#E8E0D4" stroke-width="0.3"/>
+    <text x="25" y="28" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#722F37">📕</text>
+    <text x="25" y="62" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#7A7A7A">小红书笔记</text>
+  </g>
+  <g transform="translate(565, 190)">
+    <rect x="0" y="0" width="50" height="50" rx="1" fill="white" stroke="#E8E0D4" stroke-width="0.3"/>
+    <text x="25" y="28" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#722F37">💬</text>
+    <text x="25" y="62" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#7A7A7A">社群封面</text>
+  </g>
+  <g transform="translate(630, 190)">
+    <rect x="0" y="0" width="50" height="50" rx="1" fill="white" stroke="#E8E0D4" stroke-width="0.3"/>
+    <text x="25" y="28" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#722F37">📦</text>
+    <text x="25" y="62" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#7A7A7A">产品包装</text>
+  </g>
+  <g transform="translate(695, 190)">
+    <rect x="0" y="0" width="50" height="50" rx="1" fill="white" stroke="#E8E0D4" stroke-width="0.3"/>
+    <text x="25" y="28" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#722F37">📄</text>
+    <text x="25" y="62" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#7A7A7A">品牌物料</text>
+  </g>
+
+  <!-- Design Principles -->
+  <g transform="translate(500, 300)">
+    <text x="0" y="0" font-family="'Cormorant Garamond', serif" font-size="14" fill="#722F37" font-weight="500" letter-spacing="3">设 计 原 则</text>
+    <text x="0" y="20" font-family="'Inter', sans-serif" font-size="8" fill="#7A7A7A" font-weight="300" letter-spacing="4">DESIGN PRINCIPLES</text>
+    <g transform="translate(0, 40)">
+      <rect x="0" y="0" width="260" height="28" rx="1" fill="#722F37" fill-opacity="0.05"/>
+      <text x="12" y="18" font-family="'Inter', sans-serif" font-size="9" fill="#722F37">从「视觉识别」到「品牌体验」统一输出</text>
+    </g>
+    <g transform="translate(0, 78)">
+      <rect x="0" y="0" width="260" height="28" rx="1" fill="#B8945C" fill-opacity="0.06"/>
+      <text x="12" y="18" font-family="'Inter', sans-serif" font-size="9" fill="#8C7A7A">克制留白 · 精致工艺 · 经典比例</text>
+    </g>
+    <g transform="translate(0, 116)">
+      <rect x="0" y="0" width="260" height="28" rx="1" fill="#C9A49A" fill-opacity="0.08"/>
+      <text x="12" y="18" font-family="'Inter', sans-serif" font-size="9" fill="#8C7A7A">每一个触点都是品牌质感的延伸</text>
+    </g>
+  </g>
+
+  <!-- Bottom line -->
+  <line x1="60" y1="540" x2="740" y2="540" stroke="url(#brd-gold)" stroke-opacity="0.08" stroke-width="0.3"/>
+</svg>
+
+        </div>
+        <div class="showcase-caption">六色色板 · 双字体系统 · 四大品牌触点 · 三大设计原则</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN DIRECTION -->
+<section class="section-alt" id="direction">
+  <div class="container">
+    <div class="section-title">包装升级方向</div>
+    <div class="section-divider"></div>
+    <div class="section-sub">Packaging & Presentation Upgrade Suggestions</div>
+    <div class="direction-grid">
+      <div class="direction-card">
+        <span class="direction-icon">📔</span>
+        <h3>方案书视觉化 · 品牌封面</h3>
+        <p>将平铺的 Markdown 文件包装为一份"品牌营销方案书"。设计统一的封面、目录、章节分隔页，形成交付物的仪式感与高级感。</p>
+        <div class="direction-tags"><span class="direction-tag">封面设计</span><span class="direction-tag">内页排版</span><span class="direction-tag">章节页</span></div>
+      </div>
+      <div class="direction-card">
+        <span class="direction-icon">🎨</span>
+        <h3>品牌视觉规范落地</h3>
+        <p>建立完整的视觉识别系统（色板、字体、图标、版式规则），统一所有对外输出的视觉一致性。</p>
+        <div class="direction-tags"><span class="direction-tag">Brand Guideline</span><span class="direction-tag">视觉模板</span><span class="direction-tag">社交媒体</span></div>
+      </div>
+      <div class="direction-card">
+        <span class="direction-icon">📦</span>
+        <h3>产品包装 · 开箱体验</h3>
+        <p>笔记本的实物包装采用特种纸 + 烫金工艺卡、灰板天地盖盒型，内附品牌故事卡、使用指南。</p>
+        <div class="direction-tags"><span class="direction-tag">天地盖盒型</span><span class="direction-tag">特种纸</span><span class="direction-tag">烫金</span><span class="direction-tag">触感膜</span></div>
+      </div>
+      <div class="direction-card">
+        <span class="direction-icon">📱</span>
+        <h3>数字物料 · 品牌触点</h3>
+        <p>统一小红书视觉、社群封面/欢迎页、私域素材模板。以克制的视觉语言渗透每一个用户触点。</p>
+        <div class="direction-tags"><span class="direction-tag">社媒视觉</span><span class="direction-tag">私域模板</span><span class="direction-tag">品牌触点</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTS -->
+<section class="section" id="documents">
+  <div class="container">
+    <div class="section-title">营销方案目录</div>
+    <div class="section-divider"></div>
+    <div class="section-sub">Marketing Strategy Documents</div>
+    <div class="doc-list">
+      <a class="doc-item" href="营销策划/01-小红书内容营销矩阵策划.md" target="_blank">
+        <span class="doc-number">01</span>
+        <div class="doc-content">
+          <h3>小红书内容营销矩阵策划</h3>
+          <p>品牌内容定位、人设、内容金字塔、KOC/KOL矩阵与话题策略</p>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="营销策划/02-新品上市整合营销策划.md" target="_blank">
+        <span class="doc-number">02</span>
+        <div class="doc-content">
+          <h3>新品上市整合营销策划</h3>
+          <p>预热期、引爆期、延续期三段式推进，线上线下联动策略</p>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="营销策划/03-社群私域运营策划.md" target="_blank">
+        <span class="doc-number">03</span>
+        <div class="doc-content">
+          <h3>社群私域运营策划</h3>
+          <p>私域矩阵架构、粉丝群SOP、体验官体系、UGC激励与复购引导</p>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="营销策划/04-节点营销与跨界联名策划.md" target="_blank">
+        <span class="doc-number">04</span>
+        <div class="doc-content">
+          <h3>节点营销与跨界联名策划</h3>
+          <p>全年关键营销节点规划、重点节点详细方案、跨界联名思路</p>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="营销策划/05-营销执行SOP与检查清单.md" target="_blank">
+        <span class="doc-number">05</span>
+        <div class="doc-content">
+          <h3>营销执行SOP与检查清单</h3>
+          <p>每周固定节奏SOP、发布检查清单、体验官活动执行清单</p>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND VOICE -->
+<section class="brand-voice" id="voice">
+  <div class="container">
+    <div class="section-title">品牌语调</div>
+    <div class="section-divider" style="background:var(--gold-light);"></div>
+    <div class="section-sub" style="color:rgba(245,240,232,0.5);">Brand Voice & Tone of Voice</div>
+    <div class="voice-block">
+      <blockquote>"真正的优雅，不流于表面的精致，<br>而源于内心的秩序与从容。"</blockquote>
+      <div class="voice-author">— Luna Claire · 品牌内核</div>
+      <div class="voice-rules">
+        <span class="voice-rule yes">✓ 知性 · 克制 · 有内容</span>
+        <span class="voice-rule yes">✓ 温润 · 安静 · 有力量</span>
+        <span class="voice-rule no">✗ 可爱甜腻</span>
+        <span class="voice-rule no">✗ 用力过猛</span>
+        <span class="voice-rule no">✗ 常见元素堆砌</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">Luna Claire &nbsp;·&nbsp; <span>书写立心，优雅自成</span> &nbsp;·&nbsp; 2026</div>
+
+<script>
+// Sticky nav on scroll
+const nav = document.getElementById('nav');
+const cover = document.querySelector('.cover');
+let ticking = false;
+
+function updateNav() {
+  const coverBottom = cover.offsetHeight;
+  nav.classList.toggle('visible', window.scrollY > coverBottom - 60);
+  ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (!ticking) { requestAnimationFrame(updateNav); ticking = true; }
+});
+
+// Smooth scroll for nav links
+document.querySelectorAll('.nav-links a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    var target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luna Claire — 书写立心，优雅自成</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --burgundy: #722F37;
+  --burgundy-dark: #4A1C22;
+  --burgundy-light: #8B3A44;
+  --cream: #F5F0E8;
+  --cream-light: #FAF7F2;
+  --gold: #B8945C;
+  --gold-light: #D4B886;
+  --blush: #C9A49A;
+  --blush-light: #D4B0A2;
+  --taupe: #8C7A7A;
+  --text: #2C2C2C;
+  --text-light: #7A7A7A;
+  --border: #E8E0D4;
+  --shadow: rgba(114, 47, 55, 0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--cream-light);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.25rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.4s, padding 0.4s;
+}
+nav.scrolled {
+  background: rgba(250, 247, 242, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.85rem 3rem;
+  box-shadow: 0 1px 0 var(--border);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: var(--cream);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+nav.scrolled .nav-logo { color: var(--burgundy); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s, opacity 0.3s;
+  opacity: 0.7;
+}
+nav.scrolled .nav-links a { color: var(--text); }
+.nav-links a:hover { opacity: 1; }
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(165deg, var(--burgundy-dark) 0%, var(--burgundy) 40%, var(--burgundy-light) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 25% 35%, rgba(184,148,92,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 65%, rgba(201,164,154,0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 85%, rgba(245,240,232,0.03) 0%, transparent 40%);
+  pointer-events: none;
+}
+.hero-deco {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.2;
+}
+.hero-deco-bottom {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.15;
+}
+.hero-line {
+  position: absolute;
+  left: 2rem; right: 2rem;
+  height: 0.5px;
+  background: linear-gradient(90deg, transparent, rgba(184,148,92,0.1), rgba(184,148,92,0.2), rgba(184,148,92,0.1), transparent);
+}
+.hero-line-t { top: 25%; }
+.hero-line-b { bottom: 25%; }
+.hero-vline {
+  position: absolute;
+  top: 20%; bottom: 20%;
+  width: 0.5px;
+  background: linear-gradient(180deg, transparent, rgba(212,184,134,0.06), transparent);
+}
+.hero-vline-l { left: 10%; }
+.hero-vline-r { right: 10%; }
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.hero-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 8px;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: 2.5rem;
+}
+.hero-gold-line {
+  width: 40px;
+  height: 0.5px;
+  background: var(--gold);
+  margin: 0 auto 2.5rem;
+  opacity: 0.3;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4rem, 10vw, 7rem);
+  font-weight: 400;
+  letter-spacing: 8px;
+  color: var(--cream);
+  line-height: 1.1;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+  display: block;
+  font-weight: 400;
+  letter-spacing: 8px;
+}
+.hero-tagline {
+  margin-top: 2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--gold-light);
+  opacity: 0.4;
+  letter-spacing: 6px;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--cream);
+  opacity: 0.3;
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.hero-scroll-arrow {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(180deg, var(--gold-light), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: translateY(0); }
+  50% { opacity: 0.8; transform: translateY(4px); }
+}
+section {
+  padding: 6rem 2rem;
+}
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 500;
+  color: var(--burgundy);
+  letter-spacing: 3px;
+  margin-bottom: 1.5rem;
+}
+.section-title.w-light { color: var(--cream); }
+.section-desc {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  max-width: 600px;
+  line-height: 1.9;
+}
+.story {
+  background: var(--cream-light);
+  border-bottom: 1px solid var(--border);
+}
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.story-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.story-visual-main {
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, var(--cream) 0%, #EDE6D6 100%);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.story-visual-main svg {
+  width: 60%;
+  height: auto;
+  opacity: 0.15;
+}
+.story-visual-accent {
+  display: flex;
+  gap: 1rem;
+}
+.story-visual-accent div {
+  flex: 1;
+  aspect-ratio: 3/2;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+}
+.story-visual-accent div:nth-child(1) {
+  background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+}
+.story-visual-accent div:nth-child(2) {
+  background: linear-gradient(135deg, var(--blush) 0%, var(--blush-light) 100%);
+}
+.story-text .section-desc + .section-desc {
+  margin-top: 1.2rem;
+}
+.products {
+  background: var(--cream-light);
+}
+.products-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.products-header .section-desc {
+  margin: 0 auto;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.product-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px var(--shadow);
+}
+.product-card-image {
+  aspect-ratio: 3/4;
+  background: linear-gradient(160deg, var(--cream) 0%, #EDE6D6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.product-card-image .note-icon {
+  width: 45%;
+  height: auto;
+  opacity: 0.12;
+}
+.product-card-image .badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: var(--burgundy);
+  padding: 0.25rem 0.6rem;
+  border-radius: 1px;
+}
+.product-card:nth-child(2) .product-card-image {
+  background: linear-gradient(160deg, var(--blush-light) 0%, var(--blush) 100%);
+}
+.product-card:nth-child(3) .product-card-image {
+  background: linear-gradient(160deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+}
+.product-card:nth-child(3) .product-card-image .note-icon {
+  opacity: 0.08;
+  filter: brightness(3);
+}
+.product-card:nth-child(3) .badge {
+  background: var(--gold);
+  color: var(--text);
+}
+.product-card-info {
+  padding: 1.5rem;
+}
+.product-card-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--burgundy);
+  letter-spacing: 2px;
+  margin-bottom: 0.3rem;
+}
+.product-card-info .subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+.product-card-info p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+.product-card-info .specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.product-card-info .specs span {
+  font-size: 0.65rem;
+  color: var(--taupe);
+  background: var(--cream-light);
+  padding: 0.2rem 0.6rem;
+  border-radius: 1px;
+  letter-spacing: 0.3px;
+}
+.craft {
+  background: var(--burgundy);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.craft::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(184,148,92,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(201,164,154,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+.craft-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+.craft-header .section-desc {
+  margin: 0 auto;
+  color: var(--blush);
+}
+.craft-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+.craft-item {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border: 0.5px solid rgba(212,184,134,0.12);
+  border-radius: 2px;
+  transition: background 0.3s;
+}
+.craft-item:hover {
+  background: rgba(245,240,232,0.03);
+}
+.craft-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1.5rem;
+  border: 0.5px solid rgba(184,148,92,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--gold-light);
+}
+.craft-item h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-bottom: 0.3rem;
+}
+.craft-item .craft-en {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.5;
+  margin-bottom: 0.6rem;
+}
+.craft-item p {
+  font-size: 0.8rem;
+  color: var(--blush);
+  line-height: 1.8;
+  opacity: 0.7;
+}
+.philosophy {
+  background: var(--cream-light);
+}
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.philosophy-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.philosophy-visual > div {
+  aspect-ratio: 1;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+}
+.philosophy-visual > div:nth-child(1) {
+  background: linear-gradient(135deg, var(--cream) 0%, #EDE6D6 100%);
+}
+.philosophy-visual > div:nth-child(2) {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  margin-top: 2rem;
+}
+.philosophy-visual > div:nth-child(3) {
+  background: linear-gradient(135deg, var(--blush) 0%, var(--blush-light) 100%);
+  margin-bottom: 2rem;
+}
+.philosophy-visual > div:nth-child(4) {
+  background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+}
+.philosophy-text .section-desc + .section-desc {
+  margin-top: 1.2rem;
+}
+.philosophy-quote {
+  margin-top: 2rem;
+  padding: 1.5rem 2rem;
+  border-left: 1px solid var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--burgundy);
+  line-height: 1.8;
+  background: rgba(184,148,92,0.04);
+  border-radius: 1px;
+}
+.philosophy-quote cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  font-style: normal;
+  color: var(--text-light);
+  letter-spacing: 2px;
+}
+.social {
+  background: var(--cream-light);
+  border-top: 1px solid var(--border);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.social h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--burgundy);
+  letter-spacing: 3px;
+  margin-bottom: 0.5rem;
+}
+.social p {
+  color: var(--text-light);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.social-links a {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--taupe);
+  text-decoration: none;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+.social-links a:hover {
+  border-color: var(--burgundy);
+  color: var(--burgundy);
+  transform: translateY(-2px);
+}
+footer {
+  background: var(--burgundy-dark);
+  color: var(--cream);
+  padding: 3rem 2rem 2rem;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  color: var(--gold-light);
+  opacity: 0.6;
+  margin-bottom: 0.3rem;
+}
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--blush);
+  opacity: 0.4;
+}
+.footer-copy {
+  font-size: 0.7rem;
+  color: var(--blush);
+  opacity: 0.3;
+  letter-spacing: 1px;
+}
+.footer-divider {
+  max-width: 1100px;
+  margin: 2rem auto 1.5rem;
+  height: 0.5px;
+  background: linear-gradient(90deg, transparent, rgba(212,184,134,0.1), transparent);
+}
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  nav.scrolled { padding: 0.7rem 1.5rem; }
+  .nav-links { gap: 1.5rem; }
+  .nav-links a { font-size: 0.65rem; letter-spacing: 1px; }
+  section { padding: 4rem 1.5rem; }
+  .story-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .product-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .craft-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .philosophy-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
+}
+@media (max-width: 600px) {
+  nav { padding: 0.8rem 1rem; }
+  nav.scrolled { padding: 0.6rem 1rem; }
+  .nav-links { gap: 0.8rem; }
+  .nav-links a { font-size: 0.55rem; letter-spacing: 0.5px; }
+  .hero h1 { letter-spacing: 4px; }
+  .hero h1 em { letter-spacing: 4px; }
+  .hero-tagline { font-size: 0.9rem; letter-spacing: 4px; }
+  .craft-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
+  section { padding: 3rem 1rem; }
+  .social-links { gap: 1rem; }
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="#" class="nav-logo">Luna Claire</a>
+  <ul class="nav-links">
+    <li><a href="#story">品牌故事</a></li>
+    <li><a href="#products">产品</a></li>
+    <li><a href="#craft">工艺</a></li>
+    <li><a href="#philosophy">理念</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-deco-bottom"></div>
+  <div class="hero-line hero-line-t"></div>
+  <div class="hero-line hero-line-b"></div>
+  <div class="hero-vline hero-vline-l"></div>
+  <div class="hero-vline hero-vline-r"></div>
+  <div class="hero-content">
+    <div class="hero-label">Premium Stationery</div>
+    <div class="hero-gold-line"></div>
+    <h1>Luna<br><em>Claire</em></h1>
+    <p class="hero-tagline">书写立心，优雅自成</p>
+  </div>
+  <a href="#story" class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-arrow"></div>
+  </a>
+</section>
+<section class="story" id="story">
+  <div class="section-inner story-grid">
+    <div class="story-visual">
+      <div class="story-visual-main">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <rect x="30" y="20" width="140" height="170" rx="2" fill="none" stroke="#722F37" stroke-width="0.5" opacity="0.3"/>
+          <text x="100" y="115" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="38" fill="#722F37" opacity="0.3" letter-spacing="3">LC</text>
+          <line x1="40" y1="135" x2="160" y2="135" stroke="#B8945C" stroke-width="0.3" opacity="0.2"/>
+        </svg>
+      </div>
+      <div class="story-visual-accent">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="story-text">
+      <div class="section-label">Brand Story</div>
+      <h2 class="section-title">书写立心，优雅自成</h2>
+      <p class="section-desc">Luna Claire 诞生于对书写质感的执念。我们相信，一本好的笔记本不仅是工具，更是思想的容器、审美的延伸、日常仪式感的起点。</p>
+      <p class="section-desc">「Claire」意为澄澈、聪慧、自持。优雅是与生俱来的底色，更是后天修行的状态。真正的优雅，不流于表面的精致，而源于内心的秩序与从容。</p>
+    </div>
+  </div>
+</section>
+<section class="products" id="products">
+  <div class="section-inner">
+    <div class="products-header">
+      <div class="section-label">Products</div>
+      <h2 class="section-title">经典产品系列</h2>
+      <p class="section-desc">每一本笔记本都经过精密选材与手工级工艺打磨，为书写体验赋予质感与温度。</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-card-image">
+          <div class="badge">定页本</div>
+          <svg class="note-icon" viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="100" height="140" rx="1" fill="none" stroke="#722F37" stroke-width="0.5"></rect>
+            <line x1="10" y1="45" x2="110" y2="45" stroke="#B8945C" stroke-width="0.3"></line>
+            <line x1="10" y1="80" x2="80" y2="80" stroke="#B8945C" stroke-width="0.2"></line>
+            <line x1="10" y1="100" x2="90" y2="100" stroke="#B8945C" stroke-width="0.2"></line>
+            <line x1="10" y1="120" x2="70" y2="120" stroke="#B8945C" stroke-width="0.2"></line>
+          </svg>
+        </div>
+        <div class="product-card-info">
+          <h3>A5 定页本</h3>
+          <div class="subtitle">腔脊锁线精装</div>
+          <p>180° 平摊书写无死角，触感膜封面温润亲肤，80g 内芯纸钢笔友好不洇墨。</p>
+          <div class="specs">
+            <span>A5 · 148×210mm</span>
+            <span>腔脊锁线</span>
+            <span>触感膜</span>
+            <span>烫金工艺</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-image">
+          <div class="badge">活页本</div>
+          <svg class="note-icon" viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="100" height="140" rx="1" fill="none" stroke="#722F37" stroke-width="0.5"></rect>
+            <circle cx="60" cy="25" r="2" fill="#B8945C" opacity="0.4"></circle>
+            <circle cx="60" cy="48" r="2" fill="#B8945C" opacity="0.4"></circle>
+            <circle cx="60" cy="71" r="2" fill="#B8945C" opacity="0.4"></circle>
+            <line x1="10" y1="95" x2="80" y2="95" stroke="#B8945C" stroke-width="0.2"></line>
+            <line x1="10" y1="115" x2="90" y2="115" stroke="#B8945C" stroke-width="0.2"></line>
+            <line x1="10" y1="135" x2="70" y2="135" stroke="#B8945C" stroke-width="0.2"></line>
+          </svg>
+        </div>
+        <div class="product-card-info">
+          <h3>A5 Slim 活页本</h3>
+          <div class="subtitle">六孔三连环</div>
+          <p>纤薄轻盈，随行随记。六孔活页系统自由组合内页，方格 / 横线 / 空白随心切换。</p>
+          <div class="specs">
+            <span>A5 · 140×210mm</span>
+            <span>六孔活页</span>
+            <span>自由组合</span>
+            <span>三种内页</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-image">
+          <div class="badge">限定款</div>
+          <svg class="note-icon" viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="100" height="140" rx="1" fill="none" stroke="#D4B886" stroke-width="0.5"></rect>
+            <line x1="10" y1="45" x2="110" y2="45" stroke="#D4B886" stroke-width="0.3"></line>
+            <line x1="10" y1="80" x2="80" y2="80" stroke="#D4B886" stroke-width="0.2"></line>
+            <line x1="10" y1="100" x2="90" y2="100" stroke="#D4B886" stroke-width="0.2"></line>
+            <line x1="10" y1="120" x2="70" y2="120" stroke="#D4B886" stroke-width="0.2"></line>
+          </svg>
+        </div>
+        <div class="product-card-info">
+          <h3>限定主题系列</h3>
+          <div class="subtitle">特别设计 · 限量发售</div>
+          <p>以经典设计元素为灵感，融入鸟类、蝴蝶、罗马柱等艺术符号，每一款都是可收藏的纸上艺术品。</p>
+          <div class="specs">
+            <span>特种纸封面</span>
+            <span>烫金压印</span>
+            <span>信封兜设计</span>
+            <span>限量编号</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="craft" id="craft">
+  <div class="section-inner">
+    <div class="craft-header">
+      <div class="section-label" style="color:var(--gold);">Craftsmanship</div>
+      <h2 class="section-title w-light">精工之道</h2>
+      <p class="section-desc">从选纸到装订，每一道工序都承载着对书写体验的敬意。</p>
+    </div>
+    <div class="craft-grid">
+      <div class="craft-item">
+        <div class="craft-icon">⌇</div>
+        <h4>腔脊锁线</h4>
+        <div class="craft-en">Sewn Binding</div>
+        <p>传统锁线装订工艺，书脊可 180° 完全平摊，书写无死角，内页牢固不脱落。</p>
+      </div>
+      <div class="craft-item">
+        <div class="craft-icon">✦</div>
+        <h4>烫金工艺</h4>
+        <div class="craft-en">Gold Foil</div>
+        <p>小面积精致烫金点缀，克制而高级。每一枚烫金图案都经过精细模具压制。</p>
+      </div>
+      <div class="craft-item">
+        <div class="craft-icon">◌</div>
+        <h4>触感膜封面</h4>
+        <div class="craft-en">Soft Touch</div>
+        <p>特种纸覆触感膜，1200g 灰板内衬，手感温润亲肤，兼具质感与耐用性。</p>
+      </div>
+      <div class="craft-item">
+        <div class="craft-icon">☐</div>
+        <h4>80g 内芯纸</h4>
+        <div class="craft-en">Premium Paper</div>
+        <p>精选 80g 无酸纸，钢笔书写顺滑不洇墨，墨水干速适中，双面书写无压力。</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="philosophy" id="philosophy">
+  <div class="section-inner philosophy-grid">
+    <div class="philosophy-visual">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="philosophy-text">
+      <div class="section-label">Philosophy</div>
+      <h2 class="section-title">为书写者而生</h2>
+      <p class="section-desc">Luna Claire 的服务对象是那些珍视书写仪式感的人——无论是记录心情日记、规划日常事务，还是沉浸在研博学习的深度思考中。</p>
+      <p class="section-desc">我们反对甜腻可爱的堆砌，也拒绝过度冷淡的疏离。设计取法欧式古典，以克制留白、精致工艺和经典比例，构筑一种持久的、有温度的美学。</p>
+      <div class="philosophy-quote">
+        "真正的优雅，不流于表面的精致，而源于内心的秩序与从容。"
+        <cite>— Luna Claire</cite>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="social">
+  <h2>关注我们</h2>
+  <p>在小红书发现更多 Luna Claire 的书写美学</p>
+  <div class="social-links">
+    <a href="https://www.xiaohongshu.com" target="_blank" rel="noopener" title="小红书">📕</a>
+    <a href="#" title="微信"><span style="letter-spacing:0">💬</span></a>
+    <a href="mailto:hello@lunaclaire.com" title="邮件">✉</a>
+  </div>
+</section>
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Luna Claire</div>
+      <div class="footer-tagline">书写立心，优雅自成</div>
+    </div>
+    <div class="footer-copy">© 2026 Luna Claire. All rights reserved.</div>
+  </div>
+  <div class="footer-divider"></div>
+</footer>
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if (y > 60) { nav.classList.add('scrolled'); }
+  else { nav.classList.remove('scrolled'); }
+}, { passive: true });
+</script>
+</body>
+</html>

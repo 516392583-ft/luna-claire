@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg-burgundy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#722F37"/>
+      <stop offset="100%" stop-color="#4A1C22"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D4B886"/>
+      <stop offset="50%" stop-color="#B8945C"/>
+      <stop offset="100%" stop-color="#D4B886"/>
+    </linearGradient>
+    <linearGradient id="creamGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F5F0E8"/>
+      <stop offset="100%" stop-color="#FAF7F2"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg-burgundy)"/>
+  <rect x="40" y="30" width="720" height="540" rx="2" fill="url(#creamGrad)" stroke="#E8E0D4" stroke-width="0.3" opacity="0.97"/>
+
+  <!-- Title -->
+  <text x="400" y="75" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="22" fill="#722F37" font-weight="500" letter-spacing="6">品 牌 视 觉 规 范</text>
+  <text x="400" y="98" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#7A7A7A" font-weight="300" letter-spacing="8">BRAND VISUAL IDENTITY</text>
+  <line x1="330" y1="112" x2="470" y2="112" stroke="#B8945C" stroke-opacity="0.25" stroke-width="0.5"/>
+
+  <!-- Color Palette Section -->
+  <text x="60" y="150" font-family="'Cormorant Garamond', serif" font-size="14" fill="#722F37" font-weight="500" letter-spacing="3">色 彩 体 系</text>
+  <text x="60" y="168" font-family="'Inter', sans-serif" font-size="8" fill="#7A7A7A" font-weight="300" letter-spacing="4">COLOR PALETTE</text>
+
+  <!-- Swatches -->
+  <g transform="translate(60, 185)">
+    <rect x="0" y="0" width="60" height="60" rx="1" fill="#722F37"/>
+    <text x="30" y="75" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#722F37" font-weight="500">#722F37</text>
+    <text x="30" y="86" text-anchor="middle" font-family="'Inter', sans-serif" font-size="6" fill="#7A7A7A">勃艮第红</text>
+  </g>
+  <g transform="translate(135, 185)">
+    <rect x="0" y="0" width="60" height="60" rx="1" fill="#F5F0E8" stroke="#E8E0D4" stroke-width="0.3"/>
+    <text x="30" y="75" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#722F37" font-weight="500">#F5F0E8</text>
+    <text x="30" y="86" text-anchor="middle" font-family="'Inter', sans-serif" font-size="6" fill="#7A7A7A">奶油白</text>
+  </g>
+  <g transform="translate(210, 185)">
+    <rect x="0" y="0" width="60" height="60" rx="1" fill="#B8945C"/>
+    <text x="30" y="75" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#722F37" font-weight="500">#B8945C</text>
+    <text x="30" y="86" text-anchor="middle" font-family="'Inter', sans-serif" font-size="6" fill="#7A7A7A">烫金色</text>
+  </g>
+  <g transform="translate(285, 185)">
+    <rect x="0" y="0" width="60" height="60" rx="1" fill="#C9A49A"/>
+    <text x="30" y="75" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#722F37" font-weight="500">#C9A49A</text>
+    <text x="30" y="86" text-anchor="middle" font-family="'Inter', sans-serif" font-size="6" fill="#7A7A7A">干枯玫瑰粉</text>
+  </g>
+  <g transform="translate(360, 185)">
+    <rect x="0" y="0" width="60" height="60" rx="1" fill="#8C7A7A"/>
+    <text x="30" y="75" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#722F37" font-weight="500">#8C7A7A</text>
+    <text x="30" y="86" text-anchor="middle" font-family="'Inter', sans-serif" font-size="6" fill="#7A7A7A">暖灰色</text>
+  </g>
+  <g transform="translate(435, 185)">
+    <rect x="0" y="0" width="60" height="60" rx="1" fill="#FAF7F2" stroke="#E8E0D4" stroke-width="0.3"/>
+    <text x="30" y="75" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#722F37" font-weight="500">#FAF7F2</text>
+    <text x="30" y="86" text-anchor="middle" font-family="'Inter', sans-serif" font-size="6" fill="#7A7A7A">基底白</text>
+  </g>
+
+  <!-- Typography -->
+  <text x="60" y="310" font-family="'Cormorant Garamond', serif" font-size="14" fill="#722F37" font-weight="500" letter-spacing="3">字 体 规 范</text>
+  <text x="60" y="328" font-family="'Inter', sans-serif" font-size="8" fill="#7A7A7A" font-weight="300" letter-spacing="4">TYPOGRAPHY</text>
+
+  <g transform="translate(60, 345)">
+    <text x="0" y="0" font-family="'Cormorant Garamond', serif" font-size="32" fill="#722F37" font-weight="400" letter-spacing="2">Luna Claire</text>
+    <text x="0" y="28" font-family="'Cormorant Garamond', serif" font-size="18" fill="#B8945C" font-style="italic" letter-spacing="3">书写立心，优雅自成</text>
+    <text x="0" y="52" font-family="'Inter', sans-serif" font-size="10" fill="#7A7A7A" font-weight="300">标题：Cormorant Garamond · 正文：Inter · 衬线体传达古典感，无衬线保证现代可读性</text>
+  </g>
+
+  <!-- Brand Identity Elements -->
+  <text x="500" y="150" font-family="'Cormorant Garamond', serif" font-size="14" fill="#722F37" font-weight="500" letter-spacing="3">品 牌 触 点</text>
+  <text x="500" y="168" font-family="'Inter', sans-serif" font-size="8" fill="#7A7A7A" font-weight="300" letter-spacing="4">BRAND TOUCHPOINTS</text>
+
+  <g transform="translate(500, 190)">
+    <rect x="0" y="0" width="50" height="50" rx="1" fill="white" stroke="#E8E0D4" stroke-width="0.3"/>
+    <text x="25" y="28" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#722F37">📕</text>
+    <text x="25" y="62" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#7A7A7A">小红书笔记</text>
+  </g>
+  <g transform="translate(565, 190)">
+    <rect x="0" y="0" width="50" height="50" rx="1" fill="white" stroke="#E8E0D4" stroke-width="0.3"/>
+    <text x="25" y="28" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#722F37">💬</text>
+    <text x="25" y="62" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#7A7A7A">社群封面</text>
+  </g>
+  <g transform="translate(630, 190)">
+    <rect x="0" y="0" width="50" height="50" rx="1" fill="white" stroke="#E8E0D4" stroke-width="0.3"/>
+    <text x="25" y="28" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#722F37">📦</text>
+    <text x="25" y="62" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#7A7A7A">产品包装</text>
+  </g>
+  <g transform="translate(695, 190)">
+    <rect x="0" y="0" width="50" height="50" rx="1" fill="white" stroke="#E8E0D4" stroke-width="0.3"/>
+    <text x="25" y="28" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#722F37">📄</text>
+    <text x="25" y="62" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#7A7A7A">品牌物料</text>
+  </g>
+
+  <!-- Design Principles -->
+  <g transform="translate(500, 300)">
+    <text x="0" y="0" font-family="'Cormorant Garamond', serif" font-size="14" fill="#722F37" font-weight="500" letter-spacing="3">设 计 原 则</text>
+    <text x="0" y="20" font-family="'Inter', sans-serif" font-size="8" fill="#7A7A7A" font-weight="300" letter-spacing="4">DESIGN PRINCIPLES</text>
+    <g transform="translate(0, 40)">
+      <rect x="0" y="0" width="260" height="28" rx="1" fill="#722F37" fill-opacity="0.05"/>
+      <text x="12" y="18" font-family="'Inter', sans-serif" font-size="9" fill="#722F37">从「视觉识别」到「品牌体验」统一输出</text>
+    </g>
+    <g transform="translate(0, 78)">
+      <rect x="0" y="0" width="260" height="28" rx="1" fill="#B8945C" fill-opacity="0.06"/>
+      <text x="12" y="18" font-family="'Inter', sans-serif" font-size="9" fill="#8C7A7A">克制留白 · 精致工艺 · 经典比例</text>
+    </g>
+    <g transform="translate(0, 116)">
+      <rect x="0" y="0" width="260" height="28" rx="1" fill="#C9A49A" fill-opacity="0.08"/>
+      <text x="12" y="18" font-family="'Inter', sans-serif" font-size="9" fill="#8C7A7A">每一个触点都是品牌质感的延伸</text>
+    </g>
+  </g>
+
+  <!-- Bottom line -->
+  <line x1="60" y1="540" x2="740" y2="540" stroke="url(#gold)" stroke-opacity="0.08" stroke-width="0.3"/>
+</svg>
