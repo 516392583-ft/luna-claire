@@ -61,6 +61,11 @@ nav.scrolled {
   transition: color 0.3s;
 }
 nav.scrolled .nav-logo { color: var(--burgundy); }
+.nav-logo-img {
+  height: 28px;
+  width: auto;
+  display: block;
+}
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 .nav-links a {
   color: var(--cream);
@@ -589,12 +594,13 @@ footer {
   align-items: flex-end;
 }
 .footer-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  letter-spacing: 3px;
-  color: var(--gold-light);
-  opacity: 0.6;
   margin-bottom: 0.3rem;
+}
+.footer-logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
+  opacity: 0.7;
 }
 .footer-tagline {
   font-family: 'Cormorant Garamond', serif;
@@ -642,7 +648,7 @@ footer {
 </head>
 <body>
 <nav id="nav">
-  <a href="#" class="nav-logo">Luna Claire</a>
+  <a href="#" class="nav-logo"><img src="logo.png" alt="Luna Claire" class="nav-logo-img"></a>
   <ul class="nav-links">
     <li><a href="#story">品牌故事</a></li>
     <li><a href="#products">产品</a></li>
@@ -842,7 +848,7 @@ footer {
 <footer>
   <div class="footer-inner">
     <div>
-      <div class="footer-brand">Luna Claire</div>
+      <div class="footer-brand"><img src="logo.png" alt="Luna Claire" class="footer-logo-img"></div>
       <div class="footer-tagline">书写立心，优雅自成</div>
     </div>
     <div class="footer-copy">© 2026 Luna Claire. All rights reserved.</div>
